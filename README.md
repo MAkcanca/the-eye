@@ -40,3 +40,34 @@ To query event logs, simply call the `/api/event/` [*GET*] endpoint with query p
 - *session_id*
 - *category*
 - *name*
+
+Example Request
+```
+Request
+GET /api/event/?timestamp_after=2021-01-01&timestamp_before=2021-01-02&session_id=e2085be5-9137-4e4e-80b5-f1ffddc25423
+---
+Response
+HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "session_id": "e2085be5-9137-4e4e-80b5-f1ffddc25423",
+            "timestamp": "2021-01-01T09:15:27.243860Z",
+            "category": "page interaction",
+            "name": "cta click",
+            "data": {
+                "host": "www.consumeraffairs.com",
+                "path": "/",
+                "element": "chat bubble"
+            }
+        }
+    ]
+}
+```
