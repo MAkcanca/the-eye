@@ -4,7 +4,7 @@ The Eye acts as a data aggregation/collection platform for all the application n
 
 ## Installation
 ### With Docker
-After cloning the repository
+After cloning the repository, review the `core/settings.py` and replace the Sentry SDK DSN URL.
 ```
 docker-compose up -d --build
 ```
@@ -15,6 +15,8 @@ docker-compose up -d --build
 - You can query the logs with a Session ID, Category and/or Name.
 - All the queries are ordered by Timestamp data (descending).
 - It can process more than ~100 events/second but can be further improved by switching to a Non-relational database system (such as MongoDB).
+- This project uses Sentry for collecting basic logs and exceptions. However, for errors happening inside containers (such as Redis, Celery etc.) and more fine-grained tuning, please see [this](https://jmaitrehenry.ca/how-to-catch-your-application-errors-easily-with-sentry-and-docker/).
+- For more performance, consider using a cache layer such as Aerospike Cache in front of DB.
 
 ## Usage
 

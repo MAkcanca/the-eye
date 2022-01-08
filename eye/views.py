@@ -3,6 +3,7 @@ from django_filters import rest_framework as filters
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.response import Response
+from sentry_sdk import capture_message
 
 from .models import Event
 from .serializers import EventSerializer
@@ -34,5 +35,6 @@ class EventView(ListCreateAPIView):
             log_event.delay(data)
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         else:
+            capture_message(serializer.errors)
             print("ERRORS", serializer.errors)
             return Response({"success": False}, status=status.HTTP_201_CREATED)
