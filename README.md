@@ -1,9 +1,9 @@
-# The Eye
+# 👁️ The Eye
 The Eye acts as a data aggregation/collection platform for all the application needs.
 
 
 ## Installation
-### With Docker
+### 🐳 With Docker
 After cloning the repository, review the `core/settings.py` and replace the Sentry SDK DSN URL.
 ```
 docker-compose up -d --build
@@ -27,7 +27,7 @@ To create an event log, simply call the `/api/event/` [*POST*] endpoint with pro
   "category": "page interaction",
   "name": "cta click",
   "data": {
-    "host": "www.consumeraffairs.com",
+    "host": "www.xxxxx.com",
     "path": "/",
     "element": "chat bubble"
   },
@@ -65,7 +65,7 @@ Vary: Accept
             "category": "page interaction",
             "name": "cta click",
             "data": {
-                "host": "www.consumeraffairs.com",
+                "host": "www.xxxxx.com",
                 "path": "/",
                 "element": "chat bubble"
             }
